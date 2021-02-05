@@ -2,6 +2,8 @@
 
 A simple Python script that shows randomly selected questions from [Lydia Hallie's repository of JavaScript questions](https://github.com/lydiahallie/javascript-questions).
 
+![JavaScript questions prompt screencast](screencast.gif)
+
 ## Usage
 
 0. Clone [Lydia Hallie's repository of JavaScript questions](https://github.com/lydiahallie/javascript-questions) and rename it to `questions.md`
