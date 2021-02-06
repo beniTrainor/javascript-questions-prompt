@@ -22,7 +22,7 @@ def main():
         for line in question["qlines"]:
             print(line)
 
-        answer = input("Answer: ")
+        answer = input("Answer: ").upper()
         if answer == question["answer"]:
             questions_answered_correctly += 1
         questions_answered += 1
