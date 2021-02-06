@@ -45,8 +45,8 @@ def main():
             print("✗ Incorrect. Read the explanation above to learn more " +
                     "about it.\n")
 
-        kbi = input()
-        if kbi.lower() in ["exit", "x", "quit", "q"]:
+        kbi = input("Continue (<ENTER>/n)? ")
+        if kbi.lower() == "n":
             break
 
         clear_term()
