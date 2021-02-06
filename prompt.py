@@ -42,9 +42,9 @@ def main():
 
     print("\n---\n")
     print("Stats:")
-    print("- Answered: ", questions_answered)
-    print("- Correct:", questions_answered_correctly)
-    print("- Percent: ", 
+    print("- Total answered:  ", questions_answered)
+    print("- Total correct:   ", questions_answered_correctly)
+    print("- Percent correct: ",
         round((questions_answered_correctly / questions_answered) * 100, 2))
 
 
