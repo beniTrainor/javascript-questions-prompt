@@ -31,6 +31,9 @@ def main():
         for line in question["alines"]:
             print(line)
 
+        if answer == question["answer"]:
+            print("Correct! ✓ \n")
+
         kbi = input()
         if kbi == "q":
             break
