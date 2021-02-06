@@ -45,7 +45,7 @@ def main():
     print("- Answered: ", questions_answered)
     print("- Correct:", questions_answered_correctly)
     print("- Percent: ", 
-            (questions_answered_correctly / questions_answered) * 100)
+        round((questions_answered_correctly / questions_answered) * 100, 2))
 
 
 def parse_questions():
