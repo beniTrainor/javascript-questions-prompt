@@ -41,11 +41,11 @@ def main():
 
         if answer == question["answer"]:
             total_correct += 1
-            print("✓ Correct! ({} out of {})\n"
+            print("\033[92m✓ Correct!\033[00m ({} out of {})\n"
                     .format(total_correct, total_answered))
         else:
-            print("✗ Incorrect. Read the explanation above to learn more " +
-                    "about it.\n")
+            print("\033[91m✗ Incorrect\033[00m. Read the explanation above" +
+                "to learn more about it.\n")
 
         kbi = input("Continue (<ENTER>/n)? ")
         if kbi.lower() == "n":
