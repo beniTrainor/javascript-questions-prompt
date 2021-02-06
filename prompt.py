@@ -35,7 +35,10 @@ def main():
                 print(line)
 
         if answer == question["answer"]:
-            print("Correct! ✓ \n")
+            print("✓ Correct!\n")
+        else:
+            print("✗ Incorrect! Read the explanation above to learn more " +
+                    "about it.\n")
 
         kbi = input()
         if kbi.lower() in ["exit", "x", "quit", "q"]:
