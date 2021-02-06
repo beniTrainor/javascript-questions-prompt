@@ -35,9 +35,10 @@ def main():
                 print(line)
 
         if answer == question["answer"]:
-            print("✓ Correct!\n")
+            print("✓ Correct! ({} out of {})\n"
+                    .format(questions_answered_correctly, questions_answered))
         else:
-            print("✗ Incorrect! Read the explanation above to learn more " +
+            print("✗ Incorrect. Read the explanation above to learn more " +
                     "about it.\n")
 
         kbi = input()
