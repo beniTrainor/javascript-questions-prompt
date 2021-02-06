@@ -27,7 +27,9 @@ def main():
         for line in question["qlines"]:
             print(line)
 
-        answer = input("Your answer: ").upper()
+        answer = ""
+        while answer == "":
+            answer = input("Your answer: ").upper()
         total_answered += 1
 
         print("")
