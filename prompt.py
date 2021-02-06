@@ -22,14 +22,17 @@ def main():
         for line in question["qlines"]:
             print(line)
 
-        answer = input("Answer: ").upper()
+        answer = input("Your answer: ").upper()
         if answer == question["answer"]:
             questions_answered_correctly += 1
         questions_answered += 1
 
         print("")
         for line in question["alines"]:
-            print(line)
+            if line.startswith("#### Answer"):
+                print(line.replace("Answer", "Correct answer"))
+            else:
+                print(line)
 
         if answer == question["answer"]:
             print("Correct! ✓ \n")
