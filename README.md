@@ -10,6 +10,6 @@ A simple Python script that shows randomly selected questions from [Lydia Hallie
 1. Run the script: `python3 prompt.py`.
 2. Write answers (e.g., `A`) in the prompt below the question and press enter.
 
-The prompt will continue to run until all questions have been shown or `q` has been entered after showing the answer.
+The prompt will continue to run until all questions have been shown or an exit keyword (e.g., `q`, `quit`, `x`, `exit`) is entered after showing the answer.
 
 A list of statistics (e.g., questions answered correctly) will show when the prompt stops.

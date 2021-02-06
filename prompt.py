@@ -35,7 +35,7 @@ def main():
             print("Correct! ✓ \n")
 
         kbi = input()
-        if kbi == "q":
+        if kbi.lower() in ["exit", "x", "quit", "q"]:
             break
 
         clear_term()
