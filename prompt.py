@@ -12,8 +12,8 @@ def main():
 
     clear_term()
 
-    questions_answered = 0
-    questions_answered_correctly = 0
+    total_answered = 0
+    total_correct = 0
 
     while len(questions) > 0:
         index = random.randint(0, len(questions) - 1)
@@ -23,9 +23,7 @@ def main():
             print(line)
 
         answer = input("Your answer: ").upper()
-        if answer == question["answer"]:
-            questions_answered_correctly += 1
-        questions_answered += 1
+        total_answered += 1
 
         print("")
         for line in question["alines"]:
@@ -35,8 +33,9 @@ def main():
                 print(line)
 
         if answer == question["answer"]:
+            total_correct += 1
             print("✓ Correct! ({} out of {})\n"
-                    .format(questions_answered_correctly, questions_answered))
+                    .format(total_correct, total_answered))
         else:
             print("✗ Incorrect. Read the explanation above to learn more " +
                     "about it.\n")
@@ -49,10 +48,10 @@ def main():
 
     print("\n---\n")
     print("Stats:")
-    print("- Total answered:  ", questions_answered)
-    print("- Total correct:   ", questions_answered_correctly)
+    print("- Total answered:  ", total_answered)
+    print("- Total correct:   ", total_correct)
     print("- Percent correct: ",
-        round((questions_answered_correctly / questions_answered) * 100, 2))
+        round((total_correct / total_answered) * 100, 2))
 
 
 def parse_questions():
