@@ -8,7 +8,12 @@ import random
 
 def main():
 
-    questions = parse_questions()
+    filename = "./questions.md"
+    if not os.path.exists(filename):
+        print("File '{}' does not exist.".format(filename))
+        exit(1)
+
+    questions = parse_questions_file(filename)
 
     clear_term()
 
@@ -54,7 +59,7 @@ def main():
         round((total_correct / total_answered) * 100, 2))
 
 
-def parse_questions():
+def parse_questions_file(filename):
 
     # Store the questions in a list of dictionaries with the following
     # structure:
@@ -67,7 +72,6 @@ def parse_questions():
     is_question = False
     is_answer = False
 
-    filename = "./questions.md"
     with open(filename) as ifile:
 
         for line in ifile.readlines():
