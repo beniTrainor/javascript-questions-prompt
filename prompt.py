@@ -13,19 +13,30 @@ def main():
         print("File '{}' does not exist.".format(filename))
         exit(1)
 
-    questions = parse_questions_file(filename)
-
     clear_term()
 
     total_answered = 0
     total_correct = 0
+    questions = parse_questions_file(filename)
 
     while len(questions) > 0:
         index = random.randint(0, len(questions) - 1)
         question = questions.pop(index)
 
+        # Remove empty lines from the end
+        while question["qlines"][-1] == "":
+            question["qlines"].pop()
+
         for line in question["qlines"]:
             print(line)
+
+        options = question["options"]
+        option_letters = list(options.keys())
+        random.shuffle(option_letters)
+        print("")
+        for letter in option_letters:
+            print("- {}: {}".format(letter, options[letter]))
+        print("")
 
         answer = ""
         while answer == "":
@@ -85,6 +96,7 @@ def parse_questions_file(filename):
             if line.startswith("######"):
                 questions.append({"qlines": [], "alines": []})
                 questions[-1]["qlines"].append(line)
+                questions[-1]["options"] = {}
                 is_question = True
                 is_answer = False
 
@@ -95,7 +107,13 @@ def parse_questions_file(filename):
                 is_answer = True
 
             elif is_question:
-                questions[-1]["qlines"].append(line)
+                if re.match("- [A-Z]:", line):
+                    letter, text, *rest = line.split(":")
+                    letter = letter[2:]
+                    text = ":".join([text[1:], *rest])
+                    questions[-1]["options"][letter] = text
+                else:
+                    questions[-1]["qlines"].append(line)
             elif is_answer:
                 questions[-1]["alines"].append(line)
 
