@@ -44,7 +44,7 @@ def main():
             print("\033[92m✓ Correct!\033[00m ({} out of {})\n"
                     .format(total_correct, total_answered))
         else:
-            print("\033[91m✗ Incorrect\033[00m. Read the explanation above" +
+            print("\033[91m✗ Incorrect\033[00m. Read the explanation above " +
                 "to learn more about it.\n")
 
         kbi = input("Continue (<ENTER>/n)? ")
