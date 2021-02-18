@@ -154,7 +154,7 @@ def write_question_to_file(question):
             f.write(line + "\n")
         f.write("\n")
         options = question["options"]
-        for letter in options:
+        for letter in sorted(options.keys()):
             f.write("- {}: {}\n".format(letter, options[letter]))
         f.write("\n")
         for line in question["alines"]:
