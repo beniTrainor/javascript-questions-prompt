@@ -5,6 +5,8 @@ Shows the list of [questions made by Lydia Hallie](https://github.com/lydiahalli
 import os
 import re
 import random
+from datetime import datetime
+
 
 def main():
 
@@ -57,6 +59,7 @@ def main():
         else:
             print("\033[91m✗ Incorrect\033[00m. Read the explanation above " +
                 "to learn more about it.\n")
+            write_question_to_file(question)
 
         kbi = input("Continue (<ENTER>/n)? ")
         if kbi.lower() == "n":
@@ -135,6 +138,27 @@ def ignore_line(line):
             return True
 
     return False
+
+
+def write_question_to_file(question):
+    """
+    Writes question data to a file in exactly the same structure as the
+    original document from which they came, except for the HTML tags.
+    """
+
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    output_filename = "./wrong-answers-{}.md".format(current_date)
+
+    with open(output_filename, "a") as f:
+        for line in question["qlines"]:
+            f.write(line + "\n")
+        f.write("\n")
+        options = question["options"]
+        for letter in options:
+            f.write("- {}: {}\n".format(letter, options[letter]))
+        f.write("\n")
+        for line in question["alines"]:
+            f.write(line + "\n")
 
 
 def clear_term():
