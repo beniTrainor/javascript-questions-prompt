@@ -1,6 +1,11 @@
 # javascript-questions-prompt
 
-A simple Python script that shows randomly selected questions from [Lydia Hallie's repository of JavaScript questions](https://github.com/lydiahallie/javascript-questions).
+A CLI prompt that provides an interactive way to answer JavaScript questions from [Lydia Hallie's repository of JavaScript questions](https://github.com/lydiahallie/javascript-questions) (or similarly formatted file).
+
+* All questions are randomly shuffled and shown only once.
+* The prompt can be stopped at any time by typing `n` after a question is answered.
+* Wrong questions are written to a file to keep track of them.
+* Stats are shown as you answer questions correctly and when the prompt stops.
 
 ![JavaScript questions prompt screencast](screencast.gif)
 
@@ -12,7 +17,3 @@ A simple Python script that shows randomly selected questions from [Lydia Hallie
 
 1. Run the script: `python3 prompt.py`.
 2. Write answers (e.g., `a`|`A`) in the prompt below the question and press enter.
-
-The prompt will continue to run until all questions have been shown or `n` is entered after showing the answer.
-
-A list of statistics (e.g., questions answered correctly) will show when the prompt stops.
