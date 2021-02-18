@@ -126,10 +126,10 @@ def parse_questions_file(filename):
 def ignore_line(line):
 
     omit_patterns = [
-        "^\<details\>",
-        "^\<\/details\>",
-        "^\<p\>",
-        "^\<\/p\>",
+        "^<details>",
+        "^</details>",
+        "^<p>",
+        "^</p>",
         "^---"
     ]
 
