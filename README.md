@@ -6,9 +6,12 @@ A simple Python script that shows randomly selected questions from [Lydia Hallie
 
 ## Usage
 
-0. Clone [Lydia Hallie's repository of JavaScript questions](https://github.com/lydiahallie/javascript-questions) and rename it to `questions.md`. (Note: I've already included a `questions.md` file with the questions available at the time of writing. For up-to-date questions I suggest replacing that file with the one from Lydia Hallie's.)
+0. Download [Lydia Hallie's JavaScript questions page](https://github.com/lydiahallie/javascript-questions):
+
+`wget https://raw.githubusercontent.com/lydiahallie/javascript-questions/master/README.md -O questions.md`
+
 1. Run the script: `python3 prompt.py`.
-2. Write answers (e.g., `A`) in the prompt below the question and press enter.
+2. Write answers (e.g., `a`|`A`) in the prompt below the question and press enter.
 
 The prompt will continue to run until all questions have been shown or `n` is entered after showing the answer.
 
