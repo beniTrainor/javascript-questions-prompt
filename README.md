@@ -6,6 +6,7 @@ A CLI prompt to interactively answer JavaScript questions from [Lydia Hallie's r
 * The prompt can be stopped at any time by typing `n` after a question is answered.
 * Wrong questions are written to a file to keep track of them.
 * Stats are shown as you answer questions correctly and when the prompt stops.
+* Immediate feedback is shown after submitting an answer (e.g., `Correct!`/ `Wrong. Read above to learn more about it.`).
 
 ![JavaScript questions prompt screencast](screencast.gif)
 
