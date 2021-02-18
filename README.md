@@ -1,6 +1,6 @@
 # javascript-questions-prompt
 
-A CLI prompt that provides an interactive way to answer JavaScript questions from [Lydia Hallie's repository of JavaScript questions](https://github.com/lydiahallie/javascript-questions) (or similarly formatted file).
+A CLI prompt to interactively answer JavaScript questions from [Lydia Hallie's repository](https://github.com/lydiahallie/javascript-questions) (or similarly formatted file).
 
 * All questions are randomly shuffled and shown only once.
 * The prompt can be stopped at any time by typing `n` after a question is answered.
