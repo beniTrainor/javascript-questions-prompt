@@ -52,7 +52,7 @@ def main():
             else:
                 print(line)
 
-        if answer == question["answer"]:
+        if answer[0] == question["answer"]:
             total_correct += 1
             print("\033[92m✓ Correct!\033[00m ({} out of {})\n"
                     .format(total_correct, total_answered))
