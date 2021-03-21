@@ -61,8 +61,7 @@ def main():
                 "to learn more about it.\n")
             write_question_to_file(question)
 
-        kbi = input("Continue (<ENTER>/n)? ")
-        if kbi.lower() == "n":
+        if input("Continue (<ENTER>/n)? ").lower() == "n":
             break
 
         clear_terminal_screen()
