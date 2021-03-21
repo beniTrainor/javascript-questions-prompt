@@ -15,7 +15,7 @@ def main():
         print("File '{}' does not exist.".format(filename))
         exit(1)
 
-    clear_term()
+    clear_terminal_screen()
 
     total_answered = 0
     total_correct = 0
@@ -26,10 +26,10 @@ def main():
         question = questions.pop(index)
 
         # Remove empty lines from the end
-        while question["qlines"][-1] == "":
-            question["qlines"].pop()
+        while question["question_lines"][-1] == "":
+            question["question_lines"].pop()
 
-        for line in question["qlines"]:
+        for line in question["question_lines"]:
             print(line)
 
         options = question["options"]
@@ -46,7 +46,7 @@ def main():
         total_answered += 1
 
         print("")
-        for line in question["alines"]:
+        for line in question["answer_lines"]:
             if line.startswith("#### Answer"):
                 print(line.replace("Answer", "Correct answer"))
             else:
@@ -65,7 +65,7 @@ def main():
         if kbi.lower() == "n":
             break
 
-        clear_term()
+        clear_terminal_screen()
 
     print("\n---\n")
     print("Stats:")
@@ -97,14 +97,14 @@ def parse_questions_file(filename):
                 continue
 
             if line.startswith("######"):
-                questions.append({"qlines": [], "alines": []})
-                questions[-1]["qlines"].append(line)
+                questions.append({"question_lines": [], "answer_lines": []})
+                questions[-1]["question_lines"].append(line)
                 questions[-1]["options"] = {}
                 is_question = True
                 is_answer = False
 
             elif line.startswith("#### Answer"):
-                questions[-1]["alines"].append(line)
+                questions[-1]["answer_lines"].append(line)
                 questions[-1]["answer"] = line.split(" ")[-1]
                 is_question = False
                 is_answer = True
@@ -116,9 +116,9 @@ def parse_questions_file(filename):
                     text = ":".join([text[1:], *rest])
                     questions[-1]["options"][letter] = text
                 else:
-                    questions[-1]["qlines"].append(line)
+                    questions[-1]["question_lines"].append(line)
             elif is_answer:
-                questions[-1]["alines"].append(line)
+                questions[-1]["answer_lines"].append(line)
 
     return questions
 
@@ -150,18 +150,18 @@ def write_question_to_file(question):
     output_filename = "./wrong-answers-{}.md".format(current_date)
 
     with open(output_filename, "a") as f:
-        for line in question["qlines"]:
+        for line in question["question_lines"]:
             f.write(line + "\n")
         f.write("\n")
         options = question["options"]
         for letter in sorted(options.keys()):
             f.write("- {}: {}\n".format(letter, options[letter]))
         f.write("\n")
-        for line in question["alines"]:
+        for line in question["answer_lines"]:
             f.write(line + "\n")
 
 
-def clear_term():
+def clear_terminal_screen():
     os.system("clear")
 
 if __name__ == "__main__":
