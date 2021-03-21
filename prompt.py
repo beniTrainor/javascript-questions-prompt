@@ -76,12 +76,20 @@ def main():
 
 
 def parse_questions_file(filename):
+    """
+    Parse a file with questions into a list of dictionaries holding the
+    question data.
 
-    # Store the questions in a list of dictionaries with the following
-    # structure:
-    # qlines: [] # answer lines
-    # alines: [] # question lines
-    # answer: "" # answer (e.g., "A")
+    The file should have the following format:
+    - It may include a header of miscellaneous content.
+    - Each question should be started with a *question statement* denoted by
+      a heading level 6 in Markdown ('######') and ended when a new question
+      statement is encountered.
+    - An answer statement may be encountered while parsing the question but
+      at this time it's not strictly necessary. (TODO: make this a requirement)
+      The answer statement is denoted by a heading level 4 in Markdown ('####').
+    """
+
     questions = []
 
     # Track whether the lines refer to a question/answer statement
